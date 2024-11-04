@@ -1,13 +1,13 @@
 "use client"
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Bell, User, Settings } from 'lucide-react';
-import { DashboardLayoutProps, NavigationSection } from './types';
+import { DashboardLayoutProps, NavigationSection } from './types/types';
 import Sidebar from './dashboard/Sidebar';
 import Header from './dashboard/Header';
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(false);
-  
+
   const navigationItems: NavigationSection[] = [
     {
       section: 'Users',
@@ -40,15 +40,15 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
   return (
     <div className="flex h-screen bg-gray-50">
-      <Sidebar 
+      <Sidebar
         navigationItems={navigationItems}
         isSidebarCollapsed={isSidebarCollapsed}
         setIsSidebarCollapsed={setIsSidebarCollapsed}
       />
-      
+
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />
-        
+
         <main className="flex-1 overflow-auto p-8 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-xl shadow-sm border border-blue-100 p-8">
